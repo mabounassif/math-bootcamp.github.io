@@ -8,8 +8,8 @@ categories: machinelearning basics
 
 > As Jenny walks into a room, someone yells out "145!" and then the whole room
 > starts laughting.
-> Perplexed, Jenny tried to make sense of what just happened, she picked up a
-> pamphlet from the front table and took the first available seat she could
+> Perplexed, Jenny tries to make sense of what just happened, she picks up a
+> pamphlet from the front table and takes the first available seat she could
 > find. Moments
 > later another person yells "256!" and again the whole room erupts into
 > laughter, including Jenny.
@@ -47,8 +47,6 @@ receiver reconstruct the message with low probability error, in spite of the
 channel noise.
 
 ## Entropy
-
-
 
 $$
 \begin{align}
