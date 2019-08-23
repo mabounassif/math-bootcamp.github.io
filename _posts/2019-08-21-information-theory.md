@@ -18,14 +18,14 @@ categories: machinelearning basics
 Generative Adversarial Networks (GANs), were first introduced by Ian Goodfellow
 back in 2014. Estimating the mutual information as part of an adversarial game
 between competing deep neural networks is at the cornerstone of GANs. In this
-post, we will give a short introduction of the fundamentals of Information
+post, we will give a short introduction on the fundamentals of Information
 Theory in order to help with the understanding. We will introduce information,
 shannon-entropy, cross-entropy, relative entropy and mutual information. From
 there we will bring everything together by applying those notions in topics
 related to machine learning.
 
 
-<a href="https://colab.research.google.com/drive/1pD4Lnr1Gs8S3KiUT86D1zZzpWlHOBWRQ" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+<a href="https://colab.research.google.com/drive/1--MtLnkUsyCwkdeVITCEmDxig_EywYbC" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 
 ## Calculating Gradients, Analytically
