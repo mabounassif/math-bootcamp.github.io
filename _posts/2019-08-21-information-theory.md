@@ -27,16 +27,28 @@ related to machine learning.
 
 <a href="https://colab.research.google.com/drive/1--MtLnkUsyCwkdeVITCEmDxig_EywYbC" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
+## Information
 
-## Calculating Gradients, Analytically
-
-> ``In a [recent article](https://dl.acm.org/citation.cfm?id=364791) R. Wengert suggested a technique for machine evaluation of the partial derivatives of a function given in analytical form [that] appears very attractive from the programming viewpoint and permits the treatment of large systems of differential equations which might not otherwise be undertaken.''
+> ``Information is the resolution of uncertainty.''
 >
-> --Richard E. Bellman (1964) [^5]
+> -- Claude Shannon
 
-Numerical approaches tell us the approximate sensitivity of a function with respect to its inputs at a single point. Symbolic differentiation gives us a closed-form expression for the derivative at any point in its input.
+In 1948, Claude E. Shannon published his famous "A Mathematical Theory of
+Communication" paper, which is considered by many academics as the foundational work of
+Information Theory. The mathematician lays down simply the problem he is trying
+to solve: the fundamental problem of communication. He defines it as the challenge of
+reproducing at one point either exactly or approximately a message selected at
+another point. A typical obstacle during WW2 while transmitting vital messages
+to allies accross the atlantic ocean.
 
-In calculus, we are taught many rules for symbolic differentiation. These rules are convenient identities to remember, but almost all differential calculus can be recovered from three simple rules for scalar differentiation:
+Formally, "information" is thought of as a set of possible messages, where the
+goal is to send these messages over a noisy channel, and then to have the
+receiver reconstruct the message with low probability error, in spite of the
+channel noise.
+
+## Entropy
+
+
 
 $$
 \begin{align}
@@ -45,36 +57,3 @@ $$
     \text{Chain rule: } & \boxed{\frac{d}{dx}(u \circ v) = \frac{du}{dv} \frac{dv}{dx}}
 \end{align}
 $$
-
-The same notion which appears in the differential calculi can be applied in many different contexts from [regular expressions](http://maveric.uwaterloo.ca/reports/1964_JACM_Brzozowski.pdf) to [λ-calculus](https://www.sciencedirect.com/science/article/pii/S030439750300392X) to [linear logic](https://arxiv.org/abs/1805.11813). In machine learning, we are chiefly interested in calculating derivatives for vector fields or some mechanical representation thereof. As long as a number system admits the standard arithmetic notation (addition, multiplication and their inverses), it is possible to symbolically derive an expression which, when evaluated at a point, will equate to the finite difference approximation.
-
-We make the following two claims:
-
-1. Symbolic differentiation can be performed mechanically by replacing the expressions on the left hand side with their right hand side equivalents. This process often requires less computation than the numerical method [described above](#calculating-gradients-numerically).
-2. The same rules can be applied to functions whose inputs and outputs are vectors, with exactly the same algebraic semantics. Using matrix notation requires far less computation than elementwise scalar differentiation.
-
-Firstly, let us examine the first claim. A naïve implementation of the finite difference method requires at least two evaluations each time we wish to compute the derivative at a certain input. While algebraic rewriting can help to reduce the computation, but we are still left with the $$\lim_{h\rightarrow 0}$$. It is often more efficient to derive a closed form analytical solution for the derivative at every input.
-
-Secondly, partial differentiation of vector functions is a specific case of higher dimensional derivatives that are often more convenient to represent as a matrix, or _Jacobian_, which is defined as follows: 
-
-$$
-\mathcal{J}_{\mathbf{f}} = 
-\begin{bmatrix}
-    \dfrac{\partial \mathbf{f}}{\partial x_1} & \cdots & \dfrac{\partial \mathbf{f}}{\partial x_m}
-\end{bmatrix} =
-\begin{bmatrix}
-    \dfrac{\partial f_1}{\partial x_1} & \cdots & \dfrac{\partial f_1}{\partial x_m}\\
-    \vdots & \ddots & \vdots\\
-    \dfrac{\partial f_n}{\partial x_1} & \cdots & \dfrac{\partial f_n}{\partial x_m} 
-\end{bmatrix} =
-\begin{bmatrix}
-    \nabla f_1 \\
-    \vdots \\
-    \nabla f_m
-\end{bmatrix}
-$$
-
-The matrix representation often requires far less memory and computation than a naïve implementation which iteratively computes derivatives for each element of a vector function.
-
-TODO: give an example
-
