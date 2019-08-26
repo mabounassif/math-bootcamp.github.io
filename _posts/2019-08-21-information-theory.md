@@ -21,7 +21,7 @@ between competing deep neural networks is at the cornerstone of GANs. In this
 post, we will give a short introduction on the fundamentals of Information
 Theory in order to help with the understanding. We will introduce information,
 shannon-entropy, cross-entropy, relative entropy and mutual information. From
-there we will bring everything together by applying those notions in topics
+there we will bring everything together by applying these notions in topics
 related to machine learning.
 
 
@@ -48,10 +48,33 @@ channel noise.
 
 ## Entropy
 
-$$
-\begin{align}
-    \text{Sum rule: } & \boxed{\frac{d}{dx}(u + v) = \frac{du}{dx}+ \frac{dv}{dx}} \\\\
-    \text{Product rule: } & \boxed{\frac{d}{dx}(uv) = \frac{du}{dx}v+ u\frac{dv}{dx}} \\\\
-    \text{Chain rule: } & \boxed{\frac{d}{dx}(u \circ v) = \frac{du}{dv} \frac{dv}{dx}}
-\end{align}
-$$
+Randomness is quite an abstract concept yet it manifests itself all around us
+ all the time. For instance, it appears when we ask questions like: what are the
+ chances that a brisk of air rolls a pen off the
+table? How likely can a career in acting be succesful? 
+
+All of these scenarios are different, yet we can somehow discribe them in the same framework of
+"randomness". In order words, whatever "randomness" is, let's put it under a glass
+dome and observe it. We will quickly notice that each dome  has universal subtleties that can make it unique and
+different. We can also operate on them, we can compare
+them, we can measure them etc...
+
+Let us give the glass dome a more technical term and define it as
+a random variable. Hence, entropy allows us to quantify the uncertainty of
+a random variable. The higher the entropy the more "random" is the random
+variable.
+
+
+Formally, entropy \\(H(X)\\) of a discrete random variable \\(X\\) is:
+
+\begin{equation}
+  H(X) = - \sum_{x \in \varkappa}{p(x)\log{p(x)}}
+\end{equation}
+
+where \\(\varkappa\\) is the set containing all possible values of the random variable \\(X\\) 
+and \\(p\\) is the probability density function of \\(X\\).
+The log is to the base 2 and entropy is expressed in bits. We can rewrite the above as:
+
+\begin{equation}
+  H(X) = E_{p} \log{\frac{1}{p(X)}}
+\end{equation}
